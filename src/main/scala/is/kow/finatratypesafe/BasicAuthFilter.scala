@@ -19,8 +19,6 @@ class BasicAuthFilter @Inject()
 
   def apply(request: Request, service: Service[Request, Response]): Future[Response] = {
     logger.info(s">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> User: $authUser Pass: $authPass")
-    //Somehow only auth.pass is being populated, not auth.user, That doesn't make any sense.
-    //It's like it's actually skipping the lookup for Auth.pass. This is obviously not working.
     if (authUser.nonEmpty) {
       val authHeader: Option[String] = Option(request.headers().get("Authorization"))
       authHeader.map { value =>

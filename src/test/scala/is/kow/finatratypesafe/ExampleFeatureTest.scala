@@ -6,11 +6,13 @@ import java.util.Base64
 
 import com.twitter.finagle.http.Status._
 import com.twitter.finatra.http.test.{EmbeddedHttpServer, HttpTest}
+import is.kow.finatratypesafe.otherServer.OtherServer
 
 class ExampleFeatureTest extends HttpTest {
 
   override def afterAll() = {
     server.close()
+    otherServer.close()
   }
 
   //Create a new configuration file, and use the data from here, and then barf it out to a file that I can pass in
@@ -27,6 +29,8 @@ class ExampleFeatureTest extends HttpTest {
   val tempFilePath = Files.createTempFile("exampleConfig", ".config")
   Files.write(tempFilePath, testConfig.getBytes(StandardCharsets.UTF_8))
 
+  val otherServer = new EmbeddedHttpServer(new OtherServer)
+  otherServer.start()
 
   val server = new EmbeddedHttpServer(new ExampleServer,
     clientFlags = Map(
