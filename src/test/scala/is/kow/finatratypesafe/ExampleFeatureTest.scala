@@ -33,6 +33,13 @@ class ExampleFeatureTest extends HttpTest {
     )
   )
 
+  "It should be requiring authentication by default" in {
+    server.httpGet(
+      path = "/examples",
+      andExpect = Unauthorized
+    )
+  }
+
   "Gets the example strings as configured" in {
     server.httpGet(
       path = "/examples",
