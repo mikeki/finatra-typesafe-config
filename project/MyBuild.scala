@@ -7,7 +7,7 @@ object MyBuild extends Build {
   val finatraVersion = "2.0.0.M2"
 
   lazy val root = Project(
-    "Automator",
+    "Example",
     file(".")).settings(
 
     ).settings(
@@ -38,7 +38,6 @@ object MyBuild extends Build {
         "com.mashape.unirest" % "unirest-java" % "1.4.6", //Trying a simple Rest framework
         "org.apache.velocity" % "velocity" % "1.7", // Template engine instead of twirl
         "com.typesafe.play" %% "play-json" % "2.4.2", //For awesome JSON parsing!
-        "com.typesafe.scala-logging" %% "scala-logging-slf4j" % "2.1.2", //Additional logging support
         "com.github.racc" % "typesafeconfig-guice" % "0.0.1",
         "com.typesafe" % "config" % "1.3.0", //Typesafe config library requires java8
 

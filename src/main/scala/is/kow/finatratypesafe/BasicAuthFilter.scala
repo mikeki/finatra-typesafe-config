@@ -8,16 +8,17 @@ import com.github.racc.tscg.TypesafeConfig
 import com.twitter.finagle.http.{Request, Response}
 import com.twitter.finagle.{Service, SimpleFilter}
 import com.twitter.finatra.http.response.ResponseBuilder
+import com.twitter.inject.Logging
 import com.twitter.util.Future
-import com.typesafe.scalalogging.slf4j.LazyLogging
 
 class BasicAuthFilter @Inject()
 (responseBuilder: ResponseBuilder,
  @TypesafeConfig("auth.user") authUser: String,
- @TypesafeConfig("auth.password") authPass: String
-  ) extends SimpleFilter[Request, Response] with LazyLogging {
+ @TypesafeConfig("auth.pass") authPass: String
+  ) extends SimpleFilter[Request, Response] with Logging {
 
   def apply(request: Request, service: Service[Request, Response]): Future[Response] = {
+    logger.info(s"User: $authUser Pass: $authPass")
     if (authUser.nonEmpty) {
       val authHeader: Option[String] = Option(request.headers().get("Authorization"))
       authHeader.map { value =>
