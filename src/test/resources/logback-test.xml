@@ -1,0 +1,18 @@
+<configuration>
+    <!-- Console Appender -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--<pattern>%date %.-3level %-16X{transactionId} %-16X{traceId} %-8X{appId} %-55X{uri} %-25logger{0} %msg%n</pattern>-->
+            <pattern>%date %.-3level %-25logger{0} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Per Package Config -->
+    <logger name="com.homedepot" level="debug"/>
+    <logger name="org.apache.http" level="warn"/>
+
+    <!-- Root Logger -->
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
