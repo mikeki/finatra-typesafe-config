@@ -2,7 +2,7 @@ package is.kow.finatratypesafe
 
 import javax.inject.{Inject, Singleton}
 
-import com.twitter.finagle.http.Request
+import com.twitter.finagle.httpx.Request
 import com.twitter.finatra.http.Controller
 import is.kow.finatratypesafe.services.ExampleService
 

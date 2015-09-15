@@ -7,6 +7,5 @@ import is.kow.finatratypesafe.BasicAuthFilter
 class OtherServer extends HttpServer {
   override def configureHttp(router: HttpRouter) = {
     router.filter[BasicAuthFilter]
-
   }
 }

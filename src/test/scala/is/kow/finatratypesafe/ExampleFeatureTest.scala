@@ -4,7 +4,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.util.Base64
 
-import com.twitter.finagle.http.Status._
+import com.twitter.finagle.httpx.Status._
 import com.twitter.finatra.http.test.{EmbeddedHttpServer, HttpTest}
 import is.kow.finatratypesafe.otherServer.OtherServer
 

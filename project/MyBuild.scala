@@ -4,7 +4,7 @@ import sbtassembly.AssemblyPlugin.autoImport._
 
 object MyBuild extends Build {
 
-  val finatraVersion = "2.0.0.M2"
+  val finatraVersion = "2.0.0"
 
   lazy val root = Project(
     "Example",
@@ -32,8 +32,9 @@ object MyBuild extends Build {
       ),
       libraryDependencies ++= Seq(
         "com.twitter.finatra" %% "finatra-http" % finatraVersion,
-        "com.twitter.finatra" %% "finatra-logback" % finatraVersion,
+        "com.twitter.finatra" %% "finatra-slf4j" % finatraVersion,
         "com.twitter.finatra" %% "finatra-jackson" % finatraVersion,
+        "ch.qos.logback" % "logback-classic" % "1.1.3",
 
         "com.mashape.unirest" % "unirest-java" % "1.4.6", //Trying a simple Rest framework
         "org.apache.velocity" % "velocity" % "1.7", // Template engine instead of twirl

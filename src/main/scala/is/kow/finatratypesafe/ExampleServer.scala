@@ -15,7 +15,6 @@ class ExampleServer extends HttpServer {
     //In here is way too late
     router
       .filter[CommonFilters]
-      .filter[BasicAuthFilter]
-      .add[ExampleController]
+      .add[BasicAuthFilter, ExampleController]
   }
 }
