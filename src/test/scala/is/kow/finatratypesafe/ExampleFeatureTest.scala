@@ -29,6 +29,8 @@ class ExampleFeatureTest extends HttpTest {
   val tempFilePath = Files.createTempFile("exampleConfig", ".config")
   Files.write(tempFilePath, testConfig.getBytes(StandardCharsets.UTF_8))
 
+  //Cat out the temp file?
+
   val otherServer = new EmbeddedHttpServer(new OtherServer)
   otherServer.start()
 

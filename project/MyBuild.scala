@@ -22,7 +22,8 @@ object MyBuild extends Build {
       ivyScala := ivyScala.value map {
         _.copy(overrideScalaVersion = true)
       },
-      fork in test := true,
+      fork in (Test, test) := true,
+      javaOptions in (Test, test) += "-Dconfig.trace=loads",
       assemblyMergeStrategy in assembly := {
         case "BUILD" => MergeStrategy.discard
         case other => MergeStrategy.defaultMergeStrategy(other)
